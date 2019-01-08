@@ -11,7 +11,7 @@ var watch = require('watch');
 var fs = require('fs');
 var serveIndex = require('serve-index');
 var path = require('path');
-var open = require('open');
+// var open = require('open');
 var url = require('url');
 var extend = require('node.extend');
 var enableMiddlewareShorthand = require('./enableMiddlewareShorthand');
@@ -92,12 +92,14 @@ module.exports = function(options) {
 
   var openInBrowser = function() {
     if (config.open === false) return;
-    if (typeof config.open === 'string' && config.open.indexOf('http') === 0) {
-      // if this is a complete url form
-      open(config.open);
-      return;
-    }
-    open('http' + (config.https ? 's' : '') + '://' + config.host + ':' + config.port + (typeof config.open === 'string' ? config.open : ''));
+
+    throw new Error('Config option \'open\' is not supported in this version of gulp-webserver due to vulnerability issues');
+    // if (typeof config.open === 'string' && config.open.indexOf('http') === 0) {
+    //   // if this is a complete url form
+    //   open(config.open);
+    //   return;
+    // }
+    // open('http' + (config.https ? 's' : '') + '://' + config.host + ':' + config.port + (typeof config.open === 'string' ? config.open : ''));
   };
 
   var lrServer;

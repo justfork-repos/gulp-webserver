@@ -382,13 +382,13 @@ describe('gulp-webserver', function() {
   });
 
   this.timeout(20);
-  it('should accept `true` as an open option', function(done){
-    stream = webserver({
-      open: true
-    });
-    stream.write(rootDir);
-    setTimeout(done, 15);
-  });
+  // it('should accept `true` as an open option', function(done){
+  //   stream = webserver({
+  //     open: true
+  //   });
+  //   stream.write(rootDir);
+  //   setTimeout(done, 15);
+  // });
 
   it('should use middleware function', function(done) {
     stream = webserver({
